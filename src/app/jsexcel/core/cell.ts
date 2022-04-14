@@ -3,6 +3,7 @@ import { Row } from "./row";
 import { CellType } from "./cell-type";
 import { CellStyle } from "./cell-style";
 import { CellAddress } from "./cell-address";
+import { Hyperlink } from "./hyperlink";
 
 export type byte = number;
 
@@ -169,4 +170,20 @@ export interface Cell {
    * @return comment associated with this cell or null if not found
    */
   getCellComment(): Comment;
+
+  /**
+   * Assign a hyperlink to this cell
+   * @param     link - hyperlink associated with this cell
+   */
+  setHyperlink(link: Hyperlink): void;
+
+  /**
+   * Removes the hyperlink for this cell, if there is one.
+   */
+  removeHyperlink(): void;
+
+  /**
+   * Returns hyperlink associated with this cell or null if not found
+   */
+  getHyperlink(): Hyperlink;
 }
